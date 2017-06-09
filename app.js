@@ -24,6 +24,7 @@ function randomizedCookiesPerHour(min, max, cookies) {
 }
 */
 
+///LOCATION OBJECTS
 var pike = {
   locationName: '1st and Pike',
   minCustomers:23,
@@ -111,17 +112,28 @@ for(var i = 0; i < locationArray.length; i++){
 ///Hour: Number of cookies
 var ulElement = document.getElementById('location-list');
 
+///Prints location and randomized cookies to sales.html
 for (var i = 0; i < locationArray.length ; i++) {
   console.log(locationArray[i].locationName);
+
+  ///Location header goes here
   var locationElement = document.createElement('li');
-  var locationHourlyList = document.createElement('ul');
   locationElement.textContent = locationArray[i].locationName;
-  locationHourlyList.setAttribute('id', locationArray[i].locationName);
   locationElement.setAttribute('class', 'location-head');
+
+  ///Header for unordered list where hourly cookies will go
+  var locationHourlyList = document.createElement('ul');
+  ///Hook id for the hourlyElement
+  locationHourlyList.setAttribute('id', locationArray[i].locationName);
+
+  ///Add location header and new ul with id to location-list id
   ulElement.appendChild(locationElement);
   ulElement.appendChild(locationHourlyList);
+
+  ///Gets the newly created location ul to append the hourlyElement to
   var ulElementLocation = document.getElementById(locationArray[i].locationName);
 
+///Prints out hours and hourly randomized cookies. Change var start and ends to change office hours
   for(var z = 6; z < 12; z++){
     ///6 am to 11am
     var hourlyElement = document.createElement('li');
