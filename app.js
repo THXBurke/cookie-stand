@@ -100,12 +100,28 @@ for (var i = 0; i < locationArray.length ; i++) {
   var locationElement = document.createElement('li');
   var locationHourlyList = document.createElement('ul');
   locationElement.textContent = locationArray[i].locationName;
+  locationHourlyList.setAttribute('id', locationArray[i].locationName);
   ulElement.appendChild(locationElement);
   ulElement.appendChild(locationHourlyList);
+  var ulElementLocation = document.getElementById(locationArray[i].locationName);
 
-  for(var z = 0; z < 16; z++){
+  for(var z = 6; z < 12; z++){
+
     var hourlyElement = document.createElement('li');
-    hourlyElement.textContent = locationArray[i].randomizedCookies(locationArray[i].minCustomers, locationArray[i].maxCustomers, locationArray[i].cookieAverage);
-    ulElement.appendChild(hourlyElement);
+    hourlyElement.textContent = z + ' am: ' + locationArray[i].randomizedCookies(locationArray[i].minCustomers, locationArray[i].maxCustomers, locationArray[i].cookieAverage);
+    ulElementLocation.appendChild(hourlyElement);
   }
+  for(var z = 12; z < 13; z++){
+
+    var hourlyElement = document.createElement('li');
+    hourlyElement.textContent = z + ' pm: ' + locationArray[i].randomizedCookies(locationArray[i].minCustomers, locationArray[i].maxCustomers, locationArray[i].cookieAverage);
+    ulElementLocation.appendChild(hourlyElement);
+  }
+  for(var z = 1; z < 9; z++){
+
+    var hourlyElement = document.createElement('li');
+    hourlyElement.textContent = z + ' pm: ' + locationArray[i].randomizedCookies(locationArray[i].minCustomers, locationArray[i].maxCustomers, locationArray[i].cookieAverage);
+    ulElementLocation.appendChild(hourlyElement);
+  }
+
 }
