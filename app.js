@@ -41,6 +41,14 @@ function randomizedCookieHours(location){
   return hourlyCookies;
 }
 
+function dailyTotal(location){
+  var total = 0;
+  for(var i = 0; i < location.hourlyCookies.length; i++){
+    total += location.hourlyCookies[i];
+  }
+  return total;
+}
+
 function printTable(){
   tableHead(locationArray[0].openHours);
   tableBody = document.createElement('tbody');
@@ -63,6 +71,10 @@ function tableHead(hours){
     tableHeaderCell.textContent = hours[i];
     tableHeaderRow.appendChild(tableHeaderCell);
   }
+  var tableHeaderTotal = document.createElement('th');
+  tableHeaderTotal.textContent = 'Daily Total';
+
+  tableHeaderRow.appendChild(tableHeaderTotal);
   tableEl.appendChild(tableHeader);
   tableHeader.appendChild(tableHeaderRow);
 }
@@ -80,6 +92,10 @@ function tableRow(location){
     tableDataRow.appendChild(hourlyCookiesCell);
   }
 
+  ///Adds daily total to end of hourly totals
+  var dailyTotalCell = document.createElement('td');
+  dailyTotalCell.textContent = dailyTotal(location);
+  tableDataRow.appendChild(dailyTotalCell);
 
   tableBody.appendChild(tableDataRow);
 }
