@@ -18,87 +18,109 @@
 ///Array of all calculated properties
 
 ///LOCATION OBJECTS
-var pike = {
-  locationName: '1st and Pike',
-  minCustomers:23,
-  maxCustomers: 65,
-  cookieAverage: 6.3,
-  hourlyCookies: []
-};
-pike.randomizedCookies = function (min, max, cookies) {
-  var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.ceil(customers * cookies);
-  return cookiesPerHour;
-};
+function Location(name, minCustomers, maxCustomers,cookieAverage){
+  this.name = name;
+  this.minCustomers = minCustomers;
+  this.maxCustomers = maxCustomers;
+  this.cookieAverage = cookieAverage;
+  this.openHours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm'];
+  this.hourlyCookies = randomizedCookieHours(this);
+}
 
-var seaTac = {
-  locationName: 'SeaTac Airport',
-  minCustomers:3,
-  maxCustomers: 24,
-  cookieAverage: 1.2,
-  hourlyCookies: []
-  ///3	24	1.2
-};
-seaTac.randomizedCookies = function (min, max, cookies) {
+function randomizedCookie(min, max, cookies) {
   var customers = Math.floor(Math.random() * (max - min + 1) + min);
   var cookiesPerHour = Math.ceil(customers * cookies);
   return cookiesPerHour;
-};
+}
 
-var seattleCenter = {
-  ///11	38	3.7
-  locationName: 'Seattle Center',
-  minCustomers: 11,
-  maxCustomers: 38,
-  cookieAverage: 3.7,
-  hourlyCookies: []
-};
-seattleCenter.randomizedCookies = function (min, max, cookies) {
-  var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.ceil(customers * cookies);
-  return cookiesPerHour;
-};
-
-var capitolHill = {
-  ///	20	38	2.3
-  locationName: 'Capitol Hill',
-  minCustomers: 20,
-  maxCustomers: 38,
-  cookieAverage: 2.3,
-  hourlyCookies: []
-};
-capitolHill.randomizedCookies = function (min, max, cookies) {
-  var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.ceil(customers * cookies);
-  return cookiesPerHour;
-};
-
-var alki = {
-  ///2	16	4.6
-  locationName: 'Alki',
-  minCustomers: 2,
-  maxCustomers: 16,
-  cookieAverage: 4.6,
-  hourlyCookies: []
-};
-alki.randomizedCookies = function (min, max, cookies) {
-  var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.ceil(customers * cookies);
-  return cookiesPerHour;
-};
+function randomizedCookieHours(location){
+  var hourlyCookies = [];
+  for(var i = 0; i < 24; i++){
+    hourlyCookies.push(randomizedCookie(location.minCustomers, location.maxCustomers, location.cookieAverage));
+  }
+  return hourlyCookies;
+}
+// var pike = {
+//   locationName: '1st and Pike',
+//   minCustomers:23,
+//   maxCustomers: 65,
+//   cookieAverage: 6.3,
+//   hourlyCookies: []
+// };
+// pike.randomizedCookies = function (min, max, cookies) {
+//   var customers = Math.floor(Math.random() * (max - min + 1) + min);
+//   var cookiesPerHour = Math.ceil(customers * cookies);
+//   return cookiesPerHour;
+// };
+//
+// var seaTac = {
+//   locationName: 'SeaTac Airport',
+//   minCustomers:3,
+//   maxCustomers: 24,
+//   cookieAverage: 1.2,
+//   hourlyCookies: []
+//   ///3	24	1.2
+// };
+// seaTac.randomizedCookies = function (min, max, cookies) {
+//   var customers = Math.floor(Math.random() * (max - min + 1) + min);
+//   var cookiesPerHour = Math.ceil(customers * cookies);
+//   return cookiesPerHour;
+// };
+//
+// var seattleCenter = {
+//   ///11	38	3.7
+//   locationName: 'Seattle Center',
+//   minCustomers: 11,
+//   maxCustomers: 38,
+//   cookieAverage: 3.7,
+//   hourlyCookies: []
+// };
+// seattleCenter.randomizedCookies = function (min, max, cookies) {
+//   var customers = Math.floor(Math.random() * (max - min + 1) + min);
+//   var cookiesPerHour = Math.ceil(customers * cookies);
+//   return cookiesPerHour;
+// };
+//
+// var capitolHill = {
+//   ///	20	38	2.3
+//   locationName: 'Capitol Hill',
+//   minCustomers: 20,
+//   maxCustomers: 38,
+//   cookieAverage: 2.3,
+//   hourlyCookies: []
+// };
+// capitolHill.randomizedCookies = function (min, max, cookies) {
+//   var customers = Math.floor(Math.random() * (max - min + 1) + min);
+//   var cookiesPerHour = Math.ceil(customers * cookies);
+//   return cookiesPerHour;
+// };
+//
+// var alki = {
+//   ///2	16	4.6
+//   locationName: 'Alki',
+//   minCustomers: 2,
+//   maxCustomers: 16,
+//   cookieAverage: 4.6,
+//   hourlyCookies: []
+// };
+// alki.randomizedCookies = function (min, max, cookies) {
+//   var customers = Math.floor(Math.random() * (max - min + 1) + min);
+//   var cookiesPerHour = Math.ceil(customers * cookies);
+//   return cookiesPerHour;
+// };
 
 ///Array of all locations -used to print out location and cookie totals
 var locationArray = [pike, seaTac, seattleCenter, capitolHill, alki];
 console.log(locationArray);
 
-///create array with randomized cookie numbers for each hour
-for(var i = 0; i < locationArray.length; i++){
-  for(var z = 0; z < 24; z++){
-    ///randomized cookie count for each hour 0-23
-    locationArray[i].hourlyCookies.push(locationArray[i].randomizedCookies(locationArray[i].minCustomers, locationArray[i].maxCustomers, locationArray[i].cookieAverage));
-  }
-  console.log(locationArray[i].locationName + ': ' + locationArray[i].hourlyCookies);
-}
+// ///create array with randomized cookie numbers for each hour
+// for(var i = 0; i < locationArray.length; i++){
+//   for(var z = 0; z < 24; z++){
+//     ///randomized cookie count for each hour 0-23
+//     locationArray[i].hourlyCookies.push(locationArray[i].randomizedCookies(locationArray[i].minCustomers, locationArray[i].maxCustomers, locationArray[i].cookieAverage));
+//   }
+//   console.log(locationArray[i].locationName + ': ' + locationArray[i].hourlyCookies);
+// }
 
 ///Display in unordered list in Sales.html this way:
 ///Location:
