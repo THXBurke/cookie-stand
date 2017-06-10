@@ -1,0 +1,75 @@
+/* Color stylesheet
+Salmon: #F3B58F
+light brown: #8C503E
+dark brown: #572916
+light blue: #9CC5DB
+dark blue: #03718F
+
+*/
+
+body {
+  background-color: #F3B58F;
+}
+
+#navigation {
+  position: fixed;
+  margin: 0px;
+  background-color: #572916;
+  width: 100%;
+}
+
+.links {
+  display:inline;
+  color: #9CC5DB;
+  margin: 10px;
+  font-size: 30px;
+}
+
+#header-background {
+  display: inline-block;
+  background-color: white;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.header img{
+  display:inline;
+  float: left;
+  width: 35%;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+#plus-sign img{
+  float: left;
+  display: inline;
+  width: 10%;
+  margin: 20px;
+}
+
+.title-text {
+  text-align: center;
+  color: #572916;
+  font-size: 40px;
+}
+
+#footer {
+  background-color: #572916;
+}
+
+.footer-text{
+  display: inline;
+  color: #8C503E;
+  text-align: center;
+}
+
+#footer-location {
+  background-color: #03718F;
+  color: #9CC5DB;
+  width: 100%;
+}
+
+.footer-location-list {
+  background-color: #03718F;
+  color: #9CC5DB;
+  width: 100%;
+}
