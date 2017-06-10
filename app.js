@@ -34,7 +34,7 @@ var pike = {
 };
 pike.randomizedCookies = function (min, max, cookies) {
   var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.round(customers * cookies);
+  var cookiesPerHour = Math.ceil(customers * cookies);
   return cookiesPerHour;
 };
 
@@ -48,7 +48,7 @@ var seaTac = {
 };
 seaTac.randomizedCookies = function (min, max, cookies) {
   var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.round(customers * cookies);
+  var cookiesPerHour = Math.ceil(customers * cookies);
   return cookiesPerHour;
 };
 
@@ -62,7 +62,7 @@ var seattleCenter = {
 };
 seattleCenter.randomizedCookies = function (min, max, cookies) {
   var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.round(customers * cookies);
+  var cookiesPerHour = Math.ceil(customers * cookies);
   return cookiesPerHour;
 };
 
@@ -76,7 +76,7 @@ var capitolHill = {
 };
 capitolHill.randomizedCookies = function (min, max, cookies) {
   var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.round(customers * cookies);
+  var cookiesPerHour = Math.ceil(customers * cookies);
   return cookiesPerHour;
 };
 
@@ -90,7 +90,7 @@ var alki = {
 };
 alki.randomizedCookies = function (min, max, cookies) {
   var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = Math.round(customers * cookies);
+  var cookiesPerHour = Math.ceil(customers * cookies);
   return cookiesPerHour;
 };
 
