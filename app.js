@@ -35,34 +35,51 @@ function randomizedCookie(min, max, cookies) {
 
 function randomizedCookieHours(location){
   var hourlyCookies = [];
-  for(var i = 0; i < 24; i++){
+  for(var i = 0; i < location.openHours.length; i++){
     hourlyCookies.push(randomizedCookie(location.minCustomers, location.maxCustomers, location.cookieAverage));
   }
   return hourlyCookies;
 }
 
-function printTable(){
+function printTable(location){
   tableHead(locationArray[0].openHours);
+  tableBody = document.createElement('tbody');
+
+  tableEl.appendChild(tableBody);
+
+  tableRow(location);
 }
 
 function tableHead(hours){
-  var tableEl = document.getElementById('location-table');
   var tableHeader = document.createElement('thead');
   var tableHeaderRow = document.createElement('tr');
+  var tableHeaderLocationCell = document.createElement('th');
+  tableHeaderRow.appendChild(tableHeaderLocationCell);
 
   for(var i = 0; i < hours.length; i++){
     var tableHeaderCell = document.createElement('th');
     tableHeaderCell.textContent = hours[i];
     tableHeaderRow.appendChild(tableHeaderCell);
   }
-
   tableEl.appendChild(tableHeader);
   tableHeader.appendChild(tableHeaderRow);
-  tableHeaderRow.appendChild(tableHeaderCell);
 }
 
-function tableRow(){
+function tableRow(location){
+  var tableDataRow = document.createElement('tr');
+  var tableDataCell = document.createElement('td');
+  tableDataCell.textContent = location.name;
+  tableDataCell.setAttribute('id', location.name);
+  tableDataRow.appendChild(tableDataCell);
 
+  for(var i = 0; i < location.hourlyCookies.length; i++){
+    var hourlyCookiesCell = document.createElement('td');
+    hourlyCookiesCell.textContent = location.hourlyCookies[i];
+    tableDataRow.appendChild(hourlyCookiesCell);
+  }
+
+
+  tableBody.appendChild(tableDataRow);
 }
 // var pike = {
 //   locationName: '1st and Pike',
@@ -143,7 +160,9 @@ var alki = new Location('Alki', 2, 16, 4.6);
 var locationArray = [pike, seaTac, seattleCenter, capitolHill, alki];
 console.log(locationArray);
 
-printTable();
+var tableEl = document.getElementById('location-table');
+var tableBody;
+printTable(locationArray[0]);
 
 // ///create array with randomized cookie numbers for each hour
 // for(var i = 0; i < locationArray.length; i++){
