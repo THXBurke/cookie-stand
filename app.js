@@ -110,6 +110,12 @@ function randomizedCookieHours(location){
 // };
 
 ///Array of all locations -used to print out location and cookie totals
+var pike = new Location('1st and Pike',23, 65, 6.3);
+var seaTac = new Location('SeaTac Airport', 3, 24, 1.2);
+var seattleCenter = new Location('Seattle Center', 11, 38, 3.7);
+var capitolHill = new Location('Capitol Hill', 20,	38,	2.3);
+var alki = new Location('Alki', 2, 16, 4.6);
+
 var locationArray = [pike, seaTac, seattleCenter, capitolHill, alki];
 console.log(locationArray);
 
