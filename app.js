@@ -41,13 +41,15 @@ function randomizedCookieHours(location){
   return hourlyCookies;
 }
 
-function printTable(location){
+function printTable(){
   tableHead(locationArray[0].openHours);
   tableBody = document.createElement('tbody');
 
   tableEl.appendChild(tableBody);
 
-  tableRow(location);
+  for(var i = 0; i < locationArray.length; i++){
+    tableRow(locationArray[i]);
+  }
 }
 
 function tableHead(hours){
@@ -162,7 +164,7 @@ console.log(locationArray);
 
 var tableEl = document.getElementById('location-table');
 var tableBody;
-printTable(locationArray[0]);
+printTable();
 
 // ///create array with randomized cookie numbers for each hour
 // for(var i = 0; i < locationArray.length; i++){
