@@ -16,13 +16,6 @@
 ///function: random  number of customers per hour based on min/Max
 ///Simulated number of cookies purchased each hour
 ///Array of all calculated properties
-/*
-function randomizedCookiesPerHour(min, max, cookies) {
-  var customers = Math.floor(Math.random() * (max - min + 1) + min);
-  var cookiesPerHour = customers * cookies;
-  return cookiesPerHour;
-}
-*/
 
 ///LOCATION OBJECTS
 var pike = {
