@@ -76,6 +76,7 @@ function printTable(){
   for(var i = 0; i < locationArray.length; i++){
     locationArray[i].render(locationArray[i]);
   }
+  tableFooter();
 }
 
 function tableHead(hours){
@@ -95,6 +96,16 @@ function tableHead(hours){
   tableHeaderRow.appendChild(tableHeaderTotal);
   tableEl.appendChild(tableHeader);
   tableHeader.appendChild(tableHeaderRow);
+}
+
+function tableFooter(){
+  var tfootEl = document.createElement('tfoot');
+  var tfootCell = document.createElement('th');
+
+  tfootCell.textContent = 'Total Cookies';
+
+  tfootEl.appendChild(tfootCell);
+  tableEl.appendChild(tfootEl);
 }
 
 // function tableRow(location){
