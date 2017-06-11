@@ -73,3 +73,21 @@ body {
   color: #9CC5DB;
   width: 100%;
 }
+
+#location-table{
+  border: 5px solid black;
+  background-color: #9CC5DB;
+}
+
+#location-table td{
+  border:2px solid black;
+}
+
+#location-table th{
+  border:2px solid black;
+}
+
+.location {
+  font-weight: bolder;
+  background-color: #8C503E;
+}
