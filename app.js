@@ -103,11 +103,23 @@ function tableFooter(){
   var tfootCell = document.createElement('th');
 
   tfootCell.textContent = 'Total Cookies';
-
   tfootEl.appendChild(tfootCell);
+
+  for(var i = 0; i < locationArray[0].openHours.length; i++){
+    var tableFooterTotalEl = document.createElement('th');
+    tableFooterTotalEl.textContent = columnTotal(i);
+    tfootEl.appendChild(tableFooterTotalEl);
+  }
   tableEl.appendChild(tfootEl);
 }
 
+function columnTotal(hour){
+  var total = 0;
+  for(var i = 0; i < locationArray.length; i++){
+    total += locationArray[i].hourlyCookies[hour];
+  }
+  return total;
+}
 // function tableRow(location){
 //   var tableDataRow = document.createElement('tr');
 //   var tableDataCell = document.createElement('td');
@@ -209,6 +221,7 @@ console.log(locationArray);
 
 var tableEl = document.getElementById('location-table');
 var tableBody;
+
 printTable();
 
 // ///create array with randomized cookie numbers for each hour
