@@ -18,7 +18,6 @@
 ///Array of all calculated properties
 
 ///LOCATION OBJECTS
-
 ///Constructor function for locations
 function Location(name, minCustomers, maxCustomers,cookieAverage){
   this.name = name;
