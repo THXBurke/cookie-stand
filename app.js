@@ -26,6 +26,7 @@ function Location(name, minCustomers, maxCustomers,cookieAverage){
   this.cookieAverage = cookieAverage;
   this.openHours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm'];
   this.hourlyCookies = randomizedCookieHours(this);
+  this.hourlyEmployees = salmonTosser(this);
 }
 
 ///Prints out location row data
@@ -47,6 +48,23 @@ Location.prototype.tableRow = function(){
 
   tableBody.appendChild(tableDataRow);
 };
+
+///
+
+///Calculates number of employees needed in an hour. Min of 2
+function salmonTosser(location){
+  var salmonTosserHours = [];
+  var tosserPerHour = 2;
+  ///looks at hourly cookie array at indicatied position
+  ///divide by 20; round up. Min of 2
+  ///Where do I put that information?
+  for(var i = 0; i < location.hourlyCookies.length; i++){
+    tosserPerHour += Math.ceil((location.hourlyCookies[i]) / 20);
+    salmonTosserHours.push(tosserPerHour);
+  }
+  return salmonTosserHours;
+}
+
 ///Randomize cookie total for 1 hour based on paramaters of location
 function randomizedCookie(min, max, cookies) {
   var customers = Math.floor(Math.random() * (max - min + 1) + min);
@@ -134,6 +152,7 @@ function columnTotal(hour){
   }
   return total;
 }
+
 
 ///Array of all locations -used to print out location and cookie totals
 var pike = new Location('1st and Pike',23, 65, 6.3);
