@@ -63,9 +63,9 @@ Location.prototype.employeeRow = function(){
     hourlyEmployeesCell.textContent = this.hourlyEmployees[i];
     employeeTableRowEl.appendChild(hourlyEmployeesCell);
   }
-  var dailyTotalCell = document.createElement('td');
-  dailyTotalCell.textContent = 'Total!';  ///turn this into a function
-  employeeTableRowEl.appendChild(dailyTotalCell);
+  // var dailyTotalCell = document.createElement('td');
+  // dailyTotalCell.textContent = 'Total!';  ///turn this into a function
+  // employeeTableRowEl.appendChild(dailyTotalCell);
 
   employeeTableBody.appendChild(employeeTableRowEl);
 };
@@ -74,9 +74,7 @@ Location.prototype.employeeRow = function(){
 function salmonTosser(location){
   var salmonTosserHours = [];
   var tosserPerHour = 0;
-  ///looks at hourly cookie array at indicatied position
-  ///divide by 20; round up. Min of 2
-  ///Where do I put that information?
+
   for(var i = 0; i < location.hourlyCookies.length; i++){
     tosserPerHour = Math.ceil((location.hourlyCookies[i]) / 20);
     if(tosserPerHour === 1){
@@ -140,17 +138,32 @@ function tableHead(hours){
   var tableHeaderLocationCell = document.createElement('th');
   tableHeaderRow.appendChild(tableHeaderLocationCell);
 
+///For Employee table
+  var employeeHeader = document.createElement('thead');
+  var employeeHeaderRow = document.createElement('tr');
+  var employeeHeaderLocationCell = document.createElement('th');
+  employeeHeaderRow.appendChild(employeeHeaderLocationCell);
+
 ///Creates a header cell for each hour in the first location in the LocationArray
   for(var i = 0; i < hours.length; i++){
     var tableHeaderCell = document.createElement('th');
     tableHeaderCell.textContent = hours[i];
     tableHeaderRow.appendChild(tableHeaderCell);
+
+    ///For employees
+    var employeeHeaderCell = document.createElement('th');
+    employeeHeaderCell.textContent = hours[i];
+    employeeHeaderRow.appendChild(employeeHeaderCell);
   }
   var tableHeaderTotal = document.createElement('th');
   tableHeaderTotal.textContent = 'Daily Total';
 
   tableHeaderRow.appendChild(tableHeaderTotal);
   tableEl.appendChild(tableHeader);
+
+  employeeHeader.appendChild(employeeHeaderRow);
+  employeeTable.appendChild(employeeHeader); ///This is for the employees
+
   tableHeader.appendChild(tableHeaderRow);
 }
 
@@ -180,7 +193,6 @@ function columnTotal(hour){
   return total;
 }
 
-
 ///Array of all locations -used to print out location and cookie totals
 var pike = new Location('1st and Pike',23, 65, 6.3);
 var seaTac = new Location('SeaTac Airport', 3, 24, 1.2);
@@ -193,6 +205,7 @@ console.log(locationArray);
 
 ///Gets the attribute where the Table is in the HTML
 var tableEl = document.getElementById('location-table');
+var employeeTable = document.getElementById('employee-table');
 var employeeTableBody = document.getElementById('employee-table-body');
 ///Table Body element to append the table body to in printTable(); Not sure why I can't seem to make things work without this!
 var tableBody;
