@@ -26,26 +26,27 @@ function Location(name, minCustomers, maxCustomers,cookieAverage){
   this.cookieAverage = cookieAverage;
   this.openHours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm'];
   this.hourlyCookies = randomizedCookieHours(this);
-  this.render = function tableRow(location){
-    var tableDataRow = document.createElement('tr');
-    var tableDataCell = document.createElement('td');
-    tableDataCell.textContent = location.name;
-    tableDataCell.setAttribute('class', 'location');
-    tableDataRow.appendChild(tableDataCell);
-
-    for(var i = 0; i < location.hourlyCookies.length; i++){
-      var hourlyCookiesCell = document.createElement('td');
-      hourlyCookiesCell.textContent = location.hourlyCookies[i];
-      tableDataRow.appendChild(hourlyCookiesCell);
-    }
-    var dailyTotalCell = document.createElement('td');
-    dailyTotalCell.textContent = dailyTotal(location);
-    tableDataRow.appendChild(dailyTotalCell);
-
-    tableBody.appendChild(tableDataRow);
-  };
 }
 
+///Prints out location row data
+Location.prototype.tableRow = function(){
+  var tableDataRow = document.createElement('tr');
+  var tableDataCell = document.createElement('td');
+  tableDataCell.textContent = this.name;
+  tableDataCell.setAttribute('class', 'location');
+  tableDataRow.appendChild(tableDataCell);
+
+  for(var i = 0; i < this.hourlyCookies.length; i++){
+    var hourlyCookiesCell = document.createElement('td');
+    hourlyCookiesCell.textContent = this.hourlyCookies[i];
+    tableDataRow.appendChild(hourlyCookiesCell);
+  }
+  var dailyTotalCell = document.createElement('td');
+  dailyTotalCell.textContent = dailyTotal(this);
+  tableDataRow.appendChild(dailyTotalCell);
+
+  tableBody.appendChild(tableDataRow);
+};
 ///Randomize cookie total for 1 hour based on paramaters of location
 function randomizedCookie(min, max, cookies) {
   var customers = Math.floor(Math.random() * (max - min + 1) + min);
@@ -81,7 +82,7 @@ function printTable(){
 
   ///Triggers the render method for each location in LocationArray
   for(var i = 0; i < locationArray.length; i++){
-    locationArray[i].render(locationArray[i]);
+    locationArray[i].tableRow(locationArray[i]);
   }
   ///Renders table footer
   tableFooter();
