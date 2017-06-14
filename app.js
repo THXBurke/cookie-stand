@@ -73,12 +73,15 @@ Location.prototype.employeeRow = function(){
 ///Calculates number of employees needed in an hour. Min of 2
 function salmonTosser(location){
   var salmonTosserHours = [];
-  var tosserPerHour = 2;
+  var tosserPerHour = 0;
   ///looks at hourly cookie array at indicatied position
   ///divide by 20; round up. Min of 2
   ///Where do I put that information?
   for(var i = 0; i < location.hourlyCookies.length; i++){
-    tosserPerHour += Math.ceil((location.hourlyCookies[i]) / 20);
+    tosserPerHour = Math.ceil((location.hourlyCookies[i]) / 20);
+    if(tosserPerHour === 1){
+      tosserPerHour += 1;
+    }
     salmonTosserHours.push(tosserPerHour);
   }
   return salmonTosserHours;
