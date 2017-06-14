@@ -49,7 +49,26 @@ Location.prototype.tableRow = function(){
   tableBody.appendChild(tableDataRow);
 };
 
-///
+///Print number of employees needed to employee-table
+Location.prototype.employeeRow = function(){
+  var employeeTableRowEl = document.createElement('tr');
+  var employeeTableCellEl = document.createElement('td');
+
+  employeeTableCellEl.textContent = this.name;
+  employeeTableCellEl.setAttribute('class', 'location');
+  employeeTableRowEl.appendChild(employeeTableCellEl);
+
+  for(var i = 0; i < this.hourlyEmployees.length; i++){
+    var hourlyEmployeesCell = document.createElement('td');
+    hourlyEmployeesCell.textContent = this.hourlyEmployees[i];
+    employeeTableRowEl.appendChild(hourlyEmployeesCell);
+  }
+  var dailyTotalCell = document.createElement('td');
+  dailyTotalCell.textContent = 'Total!';  ///turn this into a function
+  employeeTableRowEl.appendChild(dailyTotalCell);
+
+  employeeTableBody.appendChild(employeeTableRowEl);
+};
 
 ///Calculates number of employees needed in an hour. Min of 2
 function salmonTosser(location){
@@ -104,6 +123,11 @@ function printTable(){
   }
   ///Renders table footer
   tableFooter();
+
+  ///For employee table
+  for(var i = 0; i < locationArray.length; i++){
+    locationArray[i].employeeRow(locationArray[i]);
+  }
 }
 
 ///Creates the table header
@@ -166,6 +190,7 @@ console.log(locationArray);
 
 ///Gets the attribute where the Table is in the HTML
 var tableEl = document.getElementById('location-table');
+var employeeTableBody = document.getElementById('employee-table-body');
 ///Table Body element to append the table body to in printTable(); Not sure why I can't seem to make things work without this!
 var tableBody;
 
