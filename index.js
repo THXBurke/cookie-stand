@@ -1,4 +1,4 @@
-var hours = 'Hours: 6 am to 8 pm'
+var hours = 'Hours: 6 am to 8 pm';
 var locationArray = [
   ['1st and Pike', '1st and Pike','Seattle, WA 98101', hours],
   ['SeaTac Airport', '1234 SeaTac', 'Seattle-Tacoma, WA 98000', hours],
