@@ -63,7 +63,11 @@ body {
   color: #8C503E;
   text-align: center;
 }
+.footer-text-contact {
+  display:block;
+  color: #8C503E;
 
+}
 #footer-location {
   display: inline-block;
   background-color: #03718F;
@@ -131,4 +135,21 @@ body {
   border:2px solid black;
   padding: 5px;
   font-size: 20px;
+}
+
+.middle {
+  border-radius: 5px;
+}
+.middle h2{
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+}
+
+#about-us, #merch, #events {
+  display: inline-block;
+  background-color: white;
+  border-radius: 5px;
+  width: 30.5%;
+  margin:5px;
+  padding: 5px;
 }
