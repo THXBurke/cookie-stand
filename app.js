@@ -211,3 +211,19 @@ var employeeTableBody = document.getElementById('employee-table-body');
 var tableBody;
 
 printTable();
+
+
+var formEl = document.getElementById('form');
+formEl.addEventListener('submit', handleSubmit);
+function handleSubmit(event) {
+  event.preventDefault();
+  console.log(event.target.store.value);
+  var store = event.target.store.value;
+  var min = event.target.min.value;
+  var max = event.target.max.value;
+  var cookieAverage = event.target.cookieAverage.value;
+
+  var newLocation = new Location (store,min,max,cookieAverage);
+
+  newLocation.tableRow();
+}

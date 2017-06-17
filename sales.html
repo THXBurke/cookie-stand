@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!--this is a comment about toads-->
     <meta charset="utf-8">
 
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -8,6 +9,35 @@
     <title>Sales information</title>
   </head>
   <body>
+
+      <form id= 'form'>
+       <fieldset>
+         <legend>New Store
+         </legend>
+         <div class="new-item">
+           <label for="store">Store</label>
+           <input type="text" name="store" value="">
+         </div>
+
+         <div class="new-item">
+           <label for="min">Minimum Customers</label>
+           <input type="number" name="min" min="1">
+         </div>
+
+         <div class="new-item">
+           <label for="max">Maximum Customers</label>
+           <input type="number" name="max" min="1">
+         </div>
+
+         <div class="new-item">
+           <label for="cookieAverage">Cookie Average</label>
+           <input type="number" name="cookieAverage" min="1.0">
+         </div>
+         <input type="submit" value="submit">
+       </fieldset>
+
+      </form>
+
     <h1>Cookies</h1>
     <table id="location-table">
       <caption>Possible number of cookies needed per hour</caption>
