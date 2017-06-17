@@ -65,17 +65,29 @@ body {
 }
 
 #footer-location {
+  display: inline-block;
   background-color: #03718F;
   color: #9CC5DB;
   width: 100%;
 }
 
-.footer-location-list {
+.footer-location-ul {
+  display:inline-block;
+  margin: 10px;
+}
+
+.footer-location-item {
   background-color: #03718F;
   color: #9CC5DB;
   width: 100%;
+  font-size: 1.0em;
+  list-style: none;
 }
 
+.footer-location-store {
+  display: inline;
+  list-style: none;
+}
 
 #location-table{
   border: 5px solid black;

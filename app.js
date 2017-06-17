@@ -210,9 +210,6 @@ var employeeTableBody = document.getElementById('employee-table-body');
 ///Table Body element to append the table body to in printTable(); Not sure why I can't seem to make things work without this!
 var tableBody;
 
-///for index.html footer
-var footerLocationEl = document.getElementById('footer-location');
-
 printTable();
 
 ////Form Submit
