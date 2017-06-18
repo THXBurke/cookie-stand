@@ -44,7 +44,7 @@ body {
 .title-text {
   text-align: center;
   color: #572916;
-  font-size: 40px;
+  font-size: 50px;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
 }
@@ -70,6 +70,7 @@ body {
   width: 100%;
   margin:0px;
   padding: 0px;
+  font-family: 'Georgia',serif;
 }
 
 .footer-location-ul {
@@ -93,6 +94,8 @@ body {
 .footer-list {
   margin-top: 2px;
   padding: 1%;
+  font-family: 'Georgia', serif;
+  text-align: center;
 }
 
 #footer-text-copyright, #footer-text-copy{
@@ -106,7 +109,25 @@ body {
   display: inline-block;
 }
 
-#location-table{
+#table-section {
+  background-color: #572916;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.table-text {
+  text-align: center;
+  color: #9CC5DB;
+  font-size: 40px;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+}
+
+#table-section caption {
+  color: #9CC5DB;
+  font-size: 1.2em;
+}
+
+#location-table {
   border: 5px solid black;
   background-color: #9CC5DB;
   border-collapse: collapse;
@@ -136,9 +157,16 @@ body {
 #employee-table {
   border: 5px solid black;
   background-color: #9CC5DB;
-  margin: 1%;
+  empty-cells: hide;
+  margin:1%;
 }
 
+#employee-table-body{
+  border: 5px solid black;
+  background-color: #9CC5DB;
+  empty-cells: hide;
+  margin:1%;
+}
 
 #employee-table-body td{
   border:2px solid black;
@@ -176,4 +204,14 @@ body {
   color: #9CC5DB;
   background-color:#572916;
   margin-top: 0px;
+}
+
+.new-item, legend {
+  font-size: 1.5em;
+  margin: .5%;
+}
+
+legend {
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
 }

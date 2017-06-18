@@ -12,37 +12,38 @@
 
       <form id= 'form'>
        <fieldset>
-         <legend>New Store
-         </legend>
+         <legend>New Store</legend>
          <div class="new-item">
-           <label for="store">Store</label>
+           <label for="store">Store Name:</label>
            <input type="text" name="store" value="">
          </div>
 
          <div class="new-item">
-           <label for="min">Minimum Customers</label>
+           <label for="min">Minimum Customers:</label>
            <input type="number" name="min" min="1">
          </div>
 
          <div class="new-item">
-           <label for="max">Maximum Customers</label>
+           <label for="max">Maximum Customers:</label>
            <input type="number" name="max" min="1">
          </div>
 
          <div class="new-item">
-           <label for="cookieAverage">Cookie Average</label>
+           <label for="cookieAverage">Cookie Average:</label>
            <input type="number" name="cookieAverage" min="1.0">
          </div>
-         <input type="submit" value="submit">
+         <div class="new-item">
+           <input type="submit" value="submit">
+         </div>
        </fieldset>
 
       </form>
     <section id="table-section">
-      <h1>Cookies</h1>
+      <h1 class="table-text">Cookies</h1>
       <table id="location-table">
-        <caption>Possible number of cookies needed per hour</caption>
+        <caption>Estimated number of cookies needed per hour</caption>
       </table>
-      <h1>Salmon Cookie Tossers</h1>
+      <h1 class="table-text">Salmon Cookie Tossers</h1>
       <table id="employee-table">
         <caption>Cookie Tossers needed per hour</caption>
         <tbody id="employee-table-body">
