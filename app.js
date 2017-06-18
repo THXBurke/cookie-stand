@@ -197,6 +197,14 @@ function columnTotal(hour){
   return total;
 }
 
+///Populate Update store form options
+var storeNameOption = document.getElementById('storeName');
+function updateStoreOption(){
+  for(var i = 0; locationArray.length; i++){
+    storeNameOption.innerHTML += '<option value="option' + i + '">' + locationArray[i].name + '</option>';
+  }
+}
+
 var finalTotal = 0;
 ///Array of all locations -used to print out location and cookie totals
 var pike = new Location('1st and Pike',23, 65, 6.3);
@@ -216,6 +224,7 @@ var employeeTableBody = document.getElementById('employee-table-body');
 var tableBody;
 
 printTable();
+updateStoreOption();
 
 ////Form Submit
 var formEl = document.getElementById('form');
