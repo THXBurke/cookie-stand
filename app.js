@@ -24,7 +24,7 @@ function Location(name, minCustomers, maxCustomers,cookieAverage){
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.cookieAverage = cookieAverage;
-  this.openHours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm'];
+  this.openHours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm'];
   this.hourlyCookies = randomizedCookieHours(this);
   this.hourlyEmployees = salmonTosser(this);
 }
@@ -107,6 +107,7 @@ function dailyTotal(location){
   for(var i = 0; i < location.hourlyCookies.length; i++){
     total += location.hourlyCookies[i];
   }
+  finalTotal += total; ///Total for all cookies at all locations
   return total;
 }
 
@@ -171,7 +172,9 @@ function tableHead(hours){
 function tableFooter(){
   var tfootEl = document.createElement('tfoot');
   var tfootCell = document.createElement('th');
+  var tfootTotal = document.createElement('th');
 
+  tfootTotal.textContent = finalTotal;
   tfootCell.textContent = 'Total Cookies';
   tfootEl.appendChild(tfootCell);
 
@@ -181,6 +184,7 @@ function tableFooter(){
     tableFooterTotalEl.textContent = columnTotal(i);
     tfootEl.appendChild(tableFooterTotalEl);
   }
+  tfootEl.appendChild(tfootTotal);
   tableEl.appendChild(tfootEl);
 }
 
@@ -193,6 +197,7 @@ function columnTotal(hour){
   return total;
 }
 
+var finalTotal = 0;
 ///Array of all locations -used to print out location and cookie totals
 var pike = new Location('1st and Pike',23, 65, 6.3);
 var seaTac = new Location('SeaTac Airport', 3, 24, 1.2);
