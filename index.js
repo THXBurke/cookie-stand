@@ -44,5 +44,11 @@ function printLocations(){
   }
 }
 
+var todayDate = new Date();
+var todayDate = todayDate.getFullYear();
+var footerCopyrightEl = document.getElementById('footer-text-copyright');
 var footerLocationEl = document.getElementById('footer-location');
+
+footerCopyrightEl.textContent = todayDate;
+
 printLocations();

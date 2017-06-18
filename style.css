@@ -9,6 +9,7 @@ dark blue: #03718F
 
 body {
   background-color: #F3B58F;
+  min-width: 700px;
 }
 
 #navigation {
@@ -94,7 +95,7 @@ body {
   padding: 1%;
 }
 
-.footer-text-copyright{
+#footer-text-copyright, #footer-text-copy{
   background-color: #03718F;
   text-align: right;
   color: #572916;
@@ -150,6 +151,7 @@ body {
 }
 
 .middle {
+  display: inline-block;
   background-color: #572916;
 }
 .middle h2{
@@ -158,12 +160,14 @@ body {
 }
 
 #about-us, #merch, #events {
-  display: inline-block;
+  display: inline;
+  float:left;
   background-color: white;
   border-radius: 5px;
   width: 29.5%;
   margin:1%;
   padding: 5px;
+  min-height: 250px;
 }
 
 #current-event {
