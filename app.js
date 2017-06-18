@@ -198,9 +198,9 @@ function columnTotal(hour){
 }
 
 ///Populate Update store form options
-var storeNameOption = document.getElementById('storeName');
+
 function updateStoreOption(){
-  for(var i = 0; locationArray.length; i++){
+  for(var i = 0; i < locationArray.length; i++){
     storeNameOption.innerHTML += '<option value="option' + i + '">' + locationArray[i].name + '</option>';
   }
 }
@@ -215,6 +215,9 @@ var alki = new Location('Alki', 2, 16, 4.6);
 
 var locationArray = [pike, seaTac, seattleCenter, capitolHill, alki];
 console.log(locationArray);
+
+///Form update location
+var storeNameOption = document.getElementById('storeName');
 
 ///Gets the attribute where the Table is in the HTML
 var tableEl = document.getElementById('location-table');
@@ -240,4 +243,12 @@ function handleSubmit(event) {
   var newLocation = new Location (store,min,max,cookieAverage);
 
   newLocation.tableRow();
+}
+
+///Select location from form dropdown. Populates values of form
+storeNameOption.addEventListener('change', handleLocationUpdate);
+function handleLocationUpdate(event){
+  ///Looks at what option was selected and populates fields based on that
+  var optionChosen = event.target.value;
+  console.log(optionChosen);
 }
