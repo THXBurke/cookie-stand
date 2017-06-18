@@ -239,9 +239,19 @@ function handleSubmit(event) {
   var min = event.target.min.value;
   var max = event.target.max.value;
   var cookieAverage = event.target.cookieAverage.value;
+  var index = -1;
 
-  var newLocation = new Location (store,min,max,cookieAverage);
-
+  for(var i = 0; i < locationArray.length; i++){
+    if(locationArray[i].name === store){
+      ///Update item in array and call functions again
+      console.log('Updating an already existing item');
+      index = i;
+      break;
+    }
+    if(index === -1) {
+      var newLocation = new Location (store,min,max,cookieAverage);
+    }
+  }
   newLocation.tableRow();
 }
 
@@ -250,5 +260,36 @@ storeNameOption.addEventListener('change', handleLocationUpdate);
 function handleLocationUpdate(event){
   ///Looks at what option was selected and populates fields based on that
   var optionChosen = event.target.value;
+  var index;
   console.log(optionChosen);
+  switch (optionChosen) {
+  case 'option0':
+    index = 0;
+    break;
+  case 'option1':
+    index = 1;
+    break;
+  case 'option2':
+    index = 2;
+    break;
+  case 'option3':
+    index = 3;
+    break;
+  case 'option4':
+    index = 4;
+    break;
+  default: 'No option selected';
+  }
+  var name = locationArray[index].name;
+  var min = locationArray[index].minCustomers;
+  var max = locationArray[index].maxCustomers;
+  var cookieAverage = locationArray[index].cookieAverage;
+
+  ///Update form fields based on these variables
+  form['store'].value = name;
+  form['min'].value = min;
+  form['max'].value = max;
+  form['cookieAverage'].value = cookieAverage;
+  ///Create new item on item submit
+  ///How do I get rid of the old one?
 }
