@@ -9,6 +9,7 @@ dark blue: #03718F
 
 body {
   background-color: #F3B58F;
+  min-width: 700px;
 }
 
 #navigation {
@@ -39,22 +40,16 @@ body {
   margin-left: 40px;
   margin-bottom: 20px;
 }
-#plus-sign img{
-  float: left;
-  display: inline;
-  width: 10%;
-  margin: 20px;
-}
 
 .title-text {
   text-align: center;
   color: #572916;
-  font-size: 40px;
+  font-size: 50px;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
 }
 
-#footer {
+#footer{
   background-color: #572916;
 }
 
@@ -63,25 +58,81 @@ body {
   color: #8C503E;
   text-align: center;
 }
+.footer-text-contact {
+  display:block;
+  color: #8C503E;
 
+}
 #footer-location {
+  display: inline-block;
   background-color: #03718F;
   color: #9CC5DB;
   width: 100%;
+  margin:0px;
+  padding: 0px;
+  font-family: 'Georgia',serif;
 }
 
-.footer-location-list {
+.footer-location-ul {
+  display:inline-block;
+  margin: 1%;
+}
+
+.footer-location-item {
   background-color: #03718F;
   color: #9CC5DB;
   width: 100%;
+  font-size: 1.0em;
+  list-style: none;
 }
 
+.footer-location-store {
+  display: inline;
+  list-style: none;
+}
 
-#location-table{
+.footer-list {
+  margin-top: 2px;
+  padding: 1%;
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+#footer-text-copyright, #footer-text-copy{
+  background-color: #03718F;
+  text-align: right;
+  color: #572916;
+  padding: 2px;
+}
+
+.footer-text-contact {
+  display: inline-block;
+}
+
+#table-section {
+  background-color: #572916;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.table-text {
+  text-align: center;
+  color: #9CC5DB;
+  font-size: 40px;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+}
+
+#table-section caption {
+  color: #9CC5DB;
+  font-size: 1.2em;
+}
+
+#location-table {
   border: 5px solid black;
   background-color: #9CC5DB;
   border-collapse: collapse;
   empty-cells: hide;
+  margin:1%;
 }
 
 #location-table td{
@@ -106,9 +157,16 @@ body {
 #employee-table {
   border: 5px solid black;
   background-color: #9CC5DB;
-  margin: 5%;
+  empty-cells: hide;
+  margin:1%;
 }
 
+#employee-table-body{
+  border: 5px solid black;
+  background-color: #9CC5DB;
+  empty-cells: hide;
+  margin:1%;
+}
 
 #employee-table-body td{
   border:2px solid black;
@@ -119,4 +177,41 @@ body {
   border:2px solid black;
   padding: 5px;
   font-size: 20px;
+}
+
+.middle {
+  display: inline-block;
+  background-color: #572916;
+}
+.middle h2{
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+}
+
+#about-us, #merch, #events {
+  display: inline;
+  float:left;
+  background-color: white;
+  border-radius: 5px;
+  width: 29.5%;
+  margin:1%;
+  padding: 5px;
+  min-height: 250px;
+}
+
+#current-event {
+  font-size: 1.2em;
+  color: #9CC5DB;
+  background-color:#572916;
+  margin-top: 0px;
+}
+
+.new-item, legend {
+  font-size: 1.5em;
+  margin: .5%;
+}
+
+legend {
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
 }
