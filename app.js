@@ -116,6 +116,7 @@ function printTable(){
   ///Table head
   tableHead(locationArray[0].openHours);
   tableBody = document.createElement('tbody');
+  tableBody.setAttribute('id', 'table-body');
 
   tableEl.appendChild(tableBody);
 
@@ -232,6 +233,7 @@ updateStoreOption();
 ////Form Submit
 var formEl = document.getElementById('form');
 formEl.addEventListener('submit', handleSubmit);
+
 function handleSubmit(event) {
   event.preventDefault();
   console.log(event.target.store.value);
@@ -245,14 +247,40 @@ function handleSubmit(event) {
     if(locationArray[i].name === store){
       ///Update item in array and call functions again
       console.log('Updating an already existing item');
+      ///Update Item and print table again
       index = i;
+
+      locationArray[index].name = store;
+      locationArray[index].minCustomers = min;
+      locationArray[index].maxCustomers = max;
+      locationArray[index].cookieAverage = cookieAverage;
+
+      ///TODO: Delete table
+      // var tableSection = document.getElementById('table-section');
+      // console.log(tableSection);
+      // var tbodyEl = document.getElementById('table-body');
+      // tableSection.removeChild(tableEl);
+      //
+      // var tableEl = document.createElement('table');
+      // tableEl.setAttribute('id', 'location-table');
+      // tableSection.appendChild(tableEl);
+      //
+      // printTable();
+
+      ///TODO: Create table again
+      // for(var i = 0; i < locationArray.length; i++){
+      //   locationArray[i].tableRow(locationArray[i]);
+      // }
+      // for(var i = 0; i < locationArray.length; i++){
+      //   locationArray[i].employeeRow(locationArray[i]);
+      // }
       break;
     }
-    if(index === -1) {
-      var newLocation = new Location (store,min,max,cookieAverage);
-    }
   }
-  newLocation.tableRow();
+  if(index === -1) {
+    var newLocation = new Location (store,min,max,cookieAverage);
+    newLocation.tableRow();
+  }
 }
 
 ///Select location from form dropdown. Populates values of form
