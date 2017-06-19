@@ -124,6 +124,9 @@ function printTable(){
   for(var i = 0; i < locationArray.length; i++){
     locationArray[i].tableRow(locationArray[i]);
   }
+  ///Set individual ids for each row
+  setTableRowId();
+
   ///Renders table footer
   tableFooter();
 
@@ -206,6 +209,15 @@ function updateStoreOption(){
   }
 }
 
+///Sets unique IDs for each Location to be used for submit update of a location
+function setTableRowId(){
+  var option = document.getElementsByClassName('location');
+  for(var j = 0; j < option.length; j++){
+    var optionParent = option[j].parentElement;
+    optionParent.setAttribute('id', 'option' + j);
+  }
+}
+
 var finalTotal = 0;
 ///Array of all locations -used to print out location and cookie totals
 var pike = new Location('1st and Pike',23, 65, 6.3);
@@ -254,26 +266,15 @@ function handleSubmit(event) {
       locationArray[index].minCustomers = min;
       locationArray[index].maxCustomers = max;
       locationArray[index].cookieAverage = cookieAverage;
+      locationArray[index].hourlyCookies = randomizedCookieHours(locationArray[index]);
 
-      ///TODO: Delete table
-      // var tableSection = document.getElementById('table-section');
-      // console.log(tableSection);
-      // var tbodyEl = document.getElementById('table-body');
-      // tableSection.removeChild(tableEl);
-      //
-      // var tableEl = document.createElement('table');
-      // tableEl.setAttribute('id', 'location-table');
-      // tableSection.appendChild(tableEl);
-      //
-      // printTable();
+      ///TODO: Delete table row
+      var option = 'option' + index;
+      var rowEl = document.getElementById(option);
+      var parentRowEl = rowEl.parentElement;
+      parentRowEl.removeChild(rowEl);
 
-      ///TODO: Create table again
-      // for(var i = 0; i < locationArray.length; i++){
-      //   locationArray[i].tableRow(locationArray[i]);
-      // }
-      // for(var i = 0; i < locationArray.length; i++){
-      //   locationArray[i].employeeRow(locationArray[i]);
-      // }
+      locationArray[index].tableRow();
       break;
     }
   }
