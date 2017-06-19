@@ -267,14 +267,28 @@ function handleSubmit(event) {
       locationArray[index].maxCustomers = max;
       locationArray[index].cookieAverage = cookieAverage;
       locationArray[index].hourlyCookies = randomizedCookieHours(locationArray[index]);
+      locationArray[index].hourlyEmployees = salmonTosser(locationArray[index]);
 
-      ///TODO: Delete table row
+      ///Delete table row
       var option = 'option' + index;
       var rowEl = document.getElementById(option);
       var parentRowEl = rowEl.parentElement;
       parentRowEl.removeChild(rowEl);
-
+      ///Append updated row
       locationArray[index].tableRow();
+      //
+      // ///TODO: recreate employee table
+      // var employeeTableParent = employeeTableBody.parentElement;
+      // employeeTableParent.removeChild(employeeTableBody);
+      // ///Add recalculated employee table
+      // var employeeTableBody = document.createElement('tbody');
+      // employeeTableBody.setAttribute('id', 'employee-table-body');
+      // employeeTable.appendChild(employeeTableBody);
+      //
+      // for(var k = 0; k < locationArray.length; k++){
+      //   locationArray[k].employeeRow();
+      // }
+
       break;
     }
   }
